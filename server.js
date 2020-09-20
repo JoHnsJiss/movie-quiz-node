@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
 
 //DB config
 const connecton_url =
-  "mongodb+srv://admin:rktrBysQbiDlDQKF@cluster0.svyq3.mongodb.net/moviequizdb?retryWrites=true&w=majority";
+  "mongodb+srv://admin:<password>@cluster0.svyq3.mongodb.net/moviequizdb?retryWrites=true&w=majority";
 mongoose.connect(connecton_url, {
   useCreateIndex: true,
   useNewUrlParser: true, //It will parser the top url
