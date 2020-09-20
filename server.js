@@ -13,17 +13,19 @@ app.use(morgan("dev"));
 
 //middlware
 app.use(express.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 //DB config
 const connecton_url =
@@ -40,14 +42,14 @@ app.get("/", (req, res) => res.status(200).send("hellow world"));
 app.post("/movieupdate/new", (req, res, next) => {
   const dbmovies = req.body;
   console.log(dbmovies);
-  
-    Moviequiz.create(dbmovies, (err, data) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(201).send(data);
-      }
-    });
+
+  Moviequiz.create(dbmovies, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(201).send(data);
+    }
+  });
 });
 
 app.get("/movieupdate/dashboard", (req, res) => {
