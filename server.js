@@ -37,7 +37,10 @@ mongoose.connect(connecton_url, {
 });
 
 //api routes
-app.get("/", (req, res) => res.status(200).send("hellow world"));
+app.get("/", (req, res) => {
+  Moviequiz.dbmovies.drop();
+  res.send("db_droped");
+});
 
 app.post("/movieupdate/new", (req, res, next) => {
   const dbmovies = req.body;
