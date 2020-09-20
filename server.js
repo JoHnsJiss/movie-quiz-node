@@ -37,12 +37,12 @@ mongoose.connect(connecton_url, {
 });
 
 //api routes
-app.get("/", (req, res) => {
-  moviequizdb.dbmovies.drop();
+app.post("/", (req, res) => {
+  Moviequiz.collection.drop();
   res.send("db_droped");
 });
 
-app.post("/movieupdate/new", (req, res, next) => {
+app.post("/", (req, res, next) => {
   const dbmovies = req.body;
   console.log(dbmovies);
 
