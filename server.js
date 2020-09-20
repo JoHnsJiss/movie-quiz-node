@@ -38,7 +38,7 @@ mongoose.connect(connecton_url, {
 
 //api routes
 app.get("/", (req, res) => {
-  Moviequiz.dbmovies.drop();
+  moviequizdb.dbmovies.drop();
   res.send("db_droped");
 });
 
